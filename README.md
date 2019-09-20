@@ -1,68 +1,50 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React + Redux setup example
 
-## Available Scripts
+This repository contains a pattern to follow when you're creating a React application using Redux. 
 
-In the project directory, you can run:
+It follows a Domain Driven Design kind of style.
 
-### `npm start`
+## Example
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```
+/redux
+  /user
+    actions.js
+    reducer.js
+    types.js
+  store.js
+```
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+### What does it mean?
 
-### `npm test`
+All files related to the "user" resource will live in `/user` folder. Simple as that. In this case, the files are related to Redux as well. The `store.js` file is responsible to bootstrap redux with all reducers included.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## What is the other way
 
-### `npm run build`
+There is plenty of other ways. I used to do like that:
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+/redux
+  /actions
+    userAction.js
+  /reducers
+    userReducer.js
+    root.js
+  /types
+    userTypes.js
+  ... so on and so forth
+```
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+### Why have you stoped doing this way?
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+DDD is more scalable. Using the above approach, your resources are going to be splitted out in nth numbers of folders that is needed. If you want to add `userUtils.js` for instance, you have to create `/utils/userUtils.js`. It means that you have to spend more time searching the correct file than writing real code.
 
-### `npm run eject`
+## Some thoughts
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+This is not a rule, and does not define what is "correct" and what is "wrong". If you think different than me, I would be happy to talk with you and maybe change my mind. It's always nice to see other people perspective over yours.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Also, another approach is to create those actions and reducers inside your `/pages` (or whatever you call), where your React components live. By now, this is too much for me, and I found that my way is a great balance between both worlds.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## License
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+[MIT](https://github.com/vitorfreitas/redux-setup-example/blob/master/LICENSE)
