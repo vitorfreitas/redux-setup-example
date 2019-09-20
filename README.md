@@ -37,7 +37,7 @@ There is plenty of other ways. I used to do like that:
 
 ### Why have you stoped doing this way?
 
-DDD is more scalable. Using the above approach, your resources are going to be splitted out in nth numbers of folders that is needed. If you want to add `userUtils.js` for instance, you have to create `/utils/userUtils.js`. It means that you have to spend more time searching the correct file than writing real code.
+DDD is scalable. Using the above approach, your resources are going to be splitted out in nth numbers of folders that is needed. If you want to add `userUtils.js` for instance, you have to create `/utils/userUtils.js`. It means that you have to spend more time searching the correct file than writing real code.
 
 ## Some thoughts
 
